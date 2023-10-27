@@ -1,0 +1,14 @@
+{
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "typescript": "cls && ts-node-dev ./src/index.ts",
+        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "php": "php",
+        "python": "python -u",
+        "vbscript": "cscript //Nologo"
+    },
+    "cSpell.words": [
+        "codepaths",
+        "tsbuildinfo"
+    ]
+}
