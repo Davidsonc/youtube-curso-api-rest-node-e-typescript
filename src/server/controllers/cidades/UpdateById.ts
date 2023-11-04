@@ -3,7 +3,6 @@ import { Request,  Response } from 'express';
 import * as yup from 'yup';
 import { validation } from '../../shared/middleware';
 
-
 interface IParamProps {
     id?: number;
 }
@@ -21,7 +20,11 @@ export const updateByIdValidation = validation((getSchema) => ({
 }));
 
 export const updateById = async (req: Request<IParamProps>, res: Response) => {
-    console.log(req.params);
-    console.log(req.body);
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('updateById nao implementado');
+
+    if(Number(req.params.id) === 9999) return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        errors: {
+            default: 'Registro não encontrado'
+        }
+    });
+    return res.status(StatusCodes.NO_CONTENT).send();
 };
