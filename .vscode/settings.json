@@ -9,10 +9,31 @@
     },
     "cSpell.words": [
         "codepaths",
+        "Ibody",
+        "knexfile",
         "lcov",
         "rootdir",
         "rootdit",
+        "sqlite",
         "tsbuildinfo",
-        "unmocked"
-    ]
+        "unmocked",
+        "usuario"
+    ],
+    "prettier.jsxSingleQuote": true,
+    "prettier.singleQuote": true,
+    "autoimport.doubleQuotes": true,
+    "html.completion.attributeDefaultValue": "singlequotes",
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "editor.autoClosingQuotes": "always",
+    "prettier.embeddedLanguageFormatting": "off",
+    "prettier.endOfLine": "auto",
+    "prettier.tabWidth": 4,
+    "prettier.useEditorConfig": false,
+    "files.autoSave": "afterDelay",
+    "notebook.formatOnSave.enabled": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.autoClosingDelete": "always",
+    "editor.autoClosingOvertype": "always"
 }
