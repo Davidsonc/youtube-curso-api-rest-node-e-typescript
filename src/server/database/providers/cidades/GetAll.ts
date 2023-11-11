@@ -2,7 +2,7 @@ import { Knex } from '../../knex';
 import { ICidade } from '../../models';
 import { ETableNames } from '../../ETableNames';
 
-export const getById = async (
+export const getAll = async (
     page: number,
     limit: number,
     filter: string,

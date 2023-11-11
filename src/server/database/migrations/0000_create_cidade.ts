@@ -18,7 +18,7 @@ export async function up(Knex: Knex) {
         });
 }
 export async function down(Knex: Knex) {
-    return Knex.schema.dropTable(ETableNames.cidade).then(() => {
+    return Knex.schema.dropTableIfExists(ETableNames.cidade).then(() => {
         console.log(`Dropped table ${ETableNames.cidade}`);
     });
 }
