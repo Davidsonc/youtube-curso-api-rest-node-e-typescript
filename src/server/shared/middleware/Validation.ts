@@ -3,7 +3,6 @@ import { AnyObject, Maybe, ObjectSchema, ValidationError } from 'yup';
 import { StatusCodes } from 'http-status-codes';
 
 
-
 type TProperty = 'body' | 'header' | 'params' | 'query';
 
 type TGetSchema = <T extends Maybe<AnyObject>>(schema: ObjectSchema<T>) => ObjectSchema<T>;

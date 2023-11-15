@@ -8,8 +8,11 @@
         "vbscript": "cscript //Nologo"
     },
     "cSpell.words": [
+        "Aleatorio",
         "codepaths",
+        "conteudo",
         "Ibody",
+        "knex",
         "knexfile",
         "lcov",
         "rootdir",
