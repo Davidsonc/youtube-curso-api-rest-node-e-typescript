@@ -39,6 +39,5 @@
     },
     "engine": {
         "node": "16.x"
-    },
-    "packageManager": "yarn@1.22.19"
+    }
 }
