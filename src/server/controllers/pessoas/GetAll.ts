@@ -1,12 +1,11 @@
-import { count } from './../../database/providers/pessoas/Count';
-import { StatusCodes } from 'http-status-codes';
 import { Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
-import { validation } from '../../shared/middleware';
+
 import { PessoasProvider } from '../../database/providers/pessoas';
+import { validation } from '../../shared/middleware';
 
 interface IQueryProps {
-    id?: number;
     page?: number;
     limit?: number;
     filter?: string;
@@ -14,10 +13,9 @@ interface IQueryProps {
 export const getAllValidation = validation((getSchema) => ({
     query: getSchema<IQueryProps>(
         yup.object().shape({
-            page: yup.number().optional().moreThan(0),
-            limit: yup.number().optional().moreThan(0),
-            id: yup.number().integer().optional().default(0),
-            filter: yup.string().optional(),
+            filter: yup.string().optional().default(''),
+            page: yup.number().integer().optional().moreThan(0).default(1),
+            limit: yup.number().integer().optional().moreThan(0).default(7),
         })
     ),
 }));
@@ -26,14 +24,10 @@ export const getAll = async (
     req: Request<{}, {}, {}, IQueryProps>,
     res: Response
 ) => {
-    res.setHeader('access-control-expose-headers', 'x-total-count');
-    res.setHeader('x-total-count', 1);
-
     const result = await PessoasProvider.getAll(
         req.query.page || 1,
-        req.query.limit || 10,
-        req.query.filter || '',
-        Number(req.query.id)
+        req.query.limit || 7,
+        req.query.filter || ''
     );
     const count = await PessoasProvider.count(req.query.filter);
 
@@ -52,5 +46,6 @@ export const getAll = async (
     }
     res.setHeader('access-control-expose-headers', 'x-total-count');
     res.setHeader('x-total-count', count);
+
     return res.status(StatusCodes.OK).json(result);
 };
