@@ -1,5 +1,14 @@
 import { knex } from 'knex';
+import 'dotenv/Config';
+import pg from 'pg';
+
 import { development, production, test } from './Environment';
+
+if (process.env.NODE_ENV === 'production') {
+    pg.types.setTypeParser(20, 'text', parseInt);
+    pg.types.setTypeParser(21, 'text', parseInt);
+    pg.types.setTypeParser(23, 'text', parseInt);
+}
 
 const getEnvironment = () => {
     switch (process.env.NODE_ENV) {
