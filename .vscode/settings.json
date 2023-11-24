@@ -17,6 +17,7 @@
         "knex",
         "knexfile",
         "lcov",
+        "preproduction",
         "rootdir",
         "rootdit",
         "sqlite",
