@@ -8,7 +8,7 @@ describe('Pessoas - Create', () => {
         const email = 'create-cidades@gmail.com';
         await testServer
             .post('/cadastrar') //cadastra usuario
-            .send({ nome: 'Teste', email, senha: '123456' });
+            .send({ nomeCompleto: 'Teste', email, senha: '123456' });
         const signInRes = await testServer
             .post('/entrar')
             .send({ email, senha: '123456' });
@@ -18,7 +18,7 @@ describe('Pessoas - Create', () => {
         const resCidade = await testServer
             .post('/cidades')
             .set({ Authorization: `Bearer ${accessToken}` })
-            .send({ nome: 'Teste' });
+            .send({ nomeCompleto: 'Teste' });
         cidadeId = resCidade.body;
     });
 
@@ -27,7 +27,7 @@ describe('Pessoas - Create', () => {
             .post('/pessoas')
             .set({ Authorization: `Bearer ${accessToken}` })
             .send({
-                nome: 'Antonio',
+                nomeCompleto: 'Antonio',
                 sobrenome: 'Carlos de Souza',
                 cidadeId: cidadeId,
                 email: 'antonio@gmail.com',
@@ -40,7 +40,7 @@ describe('Pessoas - Create', () => {
         const res1 = await testServer
             .post('/pessoas')
             .set({ Authorization: `Bearer ${accessToken}` })
-            .send({ nome: 'Ca' });
+            .send({ nomeCompleto: 'Ca' });
 
         expect(res1.status).toEqual(StatusCodes.BAD_REQUEST);
         expect(res1.body).toHaveProperty('errors.body.nome');

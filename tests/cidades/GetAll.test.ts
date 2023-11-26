@@ -16,11 +16,10 @@ describe('Cidades - GetAll', () => {
     });
 
     it('Busca todos os Registros', async () => {
-
         const res1 = await testServer
             .post('/cidades')
             .set({ Authorization: `Bearer ${accessToken}` })
-            .send({nome: 'Caxias do Sul' });
+            .send({ nome: 'Caxias do Sul' });
 
         expect(res1.statusCode).toEqual(StatusCodes.CREATED);
 

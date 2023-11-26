@@ -6,11 +6,15 @@ export async function up(Knex: Knex) {
         .createTable(ETableNames.pessoa, (table) => {
             table.bigIncrements('id').primary().index();
             table
-                .string('nome', 50)
-                .checkLength('<=', 50)
+                .string('nomeCompleto', 150)
+                .checkLength('<=', 150)
                 .index()
                 .notNullable();
+
+            table.string('nome', 150).checkLength('<=', 150).index();
+
             table.string('sobrenome', 150).checkLength('<=', 100);
+
             table
                 .string('email', 50)
                 .checkLength('<=', 50)

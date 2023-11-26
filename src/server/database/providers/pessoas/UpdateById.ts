@@ -12,7 +12,6 @@ export const updateById = async (
             .where('id', '=', id);
 
         if (result > 0) return;
-
         return new Error('Erro ao atualizar registro');
     } catch (error) {
         console.log(error);

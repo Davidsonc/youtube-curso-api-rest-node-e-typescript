@@ -8,6 +8,7 @@
         "vbscript": "cscript //Nologo"
     },
     "cSpell.words": [
+        "aaregistro",
         "Aleatorio",
         "codepaths",
         "conteudo",
@@ -24,7 +25,8 @@
         "tsbuildinfo",
         "unmocked",
         "usuario",
-        "usuarios"
+        "usuarios",
+        "vvregistro"
     ],
     "prettier.jsxSingleQuote": true,
     "prettier.singleQuote": true,

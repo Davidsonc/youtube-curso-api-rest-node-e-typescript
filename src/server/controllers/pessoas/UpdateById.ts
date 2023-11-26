@@ -15,7 +15,7 @@ interface IBodyProps extends Omit<IPessoa, 'id'> {}
 export const updateByIdValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(
         yup.object().shape({
-            nome: yup.string().required().min(3),
+            nomeCompleto: yup.string().required().min(3),
             cidadeId: yup.number().required(),
             sobrenome: yup.string().optional().min(3),
             email: yup.string().email().required().min(3),

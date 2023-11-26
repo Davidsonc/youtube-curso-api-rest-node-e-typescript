@@ -10,12 +10,12 @@ interface IParamProps {
     id?: number;
 }
 
-interface IBodyProps extends Omit<IUsuario, 'id'> {}
+interface IBodyProps extends Omit<IUsuario, 'id' | 'nome'> {}
 
 export const updateByIdValidation = validation((getSchema) => ({
     body: getSchema<IBodyProps>(
         yup.object().shape({
-            nome: yup.string().required().min(3),
+            nomeCompleto: yup.string().required().min(3),
             senha: yup.string().required().min(3),
             email: yup.string().required().email(),
         })
@@ -46,3 +46,4 @@ export const updateById = async (req: Request<IParamProps>, res: Response) => {
 
     return res.status(StatusCodes.NO_CONTENT).json(result);
 };
+5;

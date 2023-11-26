@@ -813,7 +813,6 @@ pessoas.forEach((pessoa) => {
 });
 console.log('Arquivo de pessoas salvo com sucesso!');
 
-
 // const pessoasList = [
 //     'Abaíra, São Paulo, davidsonc@gmail.com, 797444195-04',
 //     'Abaré, São Paulo, davidsonc@gmail.com, 797444195-04',
