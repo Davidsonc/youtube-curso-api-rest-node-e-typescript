@@ -14,4 +14,4 @@ jobs:
                   touch id_rsa
                   chmod 600 id_rsa
                   echo "${{ secrets.AZURE_KEY }}" > id_rsa
-                  ssh -i id_rsa -o StrictHostKeyChecking=no azure@172.174.217.62 'cd /home/azureuser/api && git pull'
+                  ssh -i id_rsa -o StrictHostKeyChecking=no azureuser@172.174.217.62 'cd /home/azureuser/api && git pull'
