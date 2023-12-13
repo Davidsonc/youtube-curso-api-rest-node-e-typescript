@@ -11,7 +11,7 @@ jobs:
         steps:
             - name: SSH into Azure VM and git pull
               run: |
-                  touch $HOME/.ssh/id_rsa
-                  chmod 600 $HOME/.ssh/id_rsa
-                  echo "${{ secrets.AZURE_KEY }}" > $HOME/.ssh/id_rsa
-                  ssh -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no user@172.174.217.62 'cd /home/azureuser/api && git pull'
+                  touch id_rsa
+                  chmod 600 id_rsa
+                  echo "${{ secrets.AZURE_KEY }}" > id_rsa
+                  ssh -i id_rsa -o StrictHostKeyChecking=no azure@172.174.217.62 'cd /home/azureuser/api && git pull'
