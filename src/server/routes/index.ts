@@ -13,7 +13,6 @@ router.get('/', (_, res) => {
 
 router.get(
     '/cidades',
-    ensureAuthenticated,
     CidadesController.getAllValidation,
     CidadesController.getAll
 );
