@@ -8,11 +8,9 @@ export const seed = async (knex: Knex) => {
     >('* as count');
     if (!Number.isInteger(count) || Number(count) > 0) return;
 
+    const Brazil: boolean = false;
 
-
-    const Brazil:boolean = false;
-    
-    if (Brazil){
+    if (Brazil) {
         const citiesToInsert = allCitiesFromBrazil.map((nomeDaCidade) => ({
             nome: nomeDaCidade,
         }));
@@ -149,7 +147,7 @@ const allCitiesFromBahia = [
     'Cristópolis (BA)',
     'Cruz das Almas (BA)',
     'Curaçá (BA)',
-    'Dias d\'Ávila (BA)',
+    "Dias d'Ávila (BA)",
     'Dário Meira (BA)',
     'Dom Basílio (BA)',
     'Dom Macedo Costa (BA)',
@@ -453,7 +451,7 @@ const allCitiesFromBahia = [
     'Wanderley (BA)',
     'Wenceslau Guimarães (BA)',
     'Xique-Xique (BA)',
-    
+
     'Brasília DF(Distrito Federal)',
 ];
 

@@ -45,8 +45,8 @@ export const seed = async (knex: Knex) => {
         const match = pessoa.match(/^(.*),\s*(.*),\s*(.*),\s*(.*)$/);
 
         if (match) {
-            const [_, nome, sobrenome, email, cidadeId] = match;
-            return { nome, sobrenome, email, cidadeId };
+            const [_, nome, sobrenome, email, cidadeId, nomeCompleto] = match;
+            return { nome, sobrenome, email, cidadeId, nomeCompleto };
         }
         throw new Error();
     });
@@ -54,6 +54,10 @@ export const seed = async (knex: Knex) => {
     for (const propriedade in peoplesToInsert) {
         const idAleatorio = await gerarIdAleatorio(knex);
         peoplesToInsert[propriedade].cidadeId = idAleatorio.toString();
+        peoplesToInsert[propriedade].nomeCompleto =
+            peoplesToInsert[propriedade].nome +
+            ' ' +
+            peoplesToInsert[propriedade].sobrenome;
     }
 
     await knex(ETableNames.pessoa).insert(peoplesToInsert);
