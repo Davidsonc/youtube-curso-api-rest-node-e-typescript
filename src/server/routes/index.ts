@@ -8,7 +8,7 @@ import { ensureAuthenticated } from '../shared/middleware';
 const router = Router();
 
 router.get('/', (_, res) => {
-    return res.send('artur');
+    return res.send('App Initialized');
 });
 
 router.get(
