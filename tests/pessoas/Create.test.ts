@@ -8,7 +8,7 @@ describe('Pessoas - Create', () => {
         const email = 'create-cidades@gmail.com';
         await testServer
             .post('/cadastrar') //cadastra usuario
-            .send({ nomeCompleto: 'Teste', email, senha: '123456' });
+            .send({ nome: 'Teste', email, senha: '123456' });
         const signInRes = await testServer
             .post('/entrar')
             .send({ email, senha: '123456' });
@@ -18,7 +18,7 @@ describe('Pessoas - Create', () => {
         const resCidade = await testServer
             .post('/cidades')
             .set({ Authorization: `Bearer ${accessToken}` })
-            .send({ nomeCompleto: 'Teste' });
+            .send({ nome: 'Teste' });
         cidadeId = resCidade.body;
     });
 
@@ -27,7 +27,8 @@ describe('Pessoas - Create', () => {
             .post('/pessoas')
             .set({ Authorization: `Bearer ${accessToken}` })
             .send({
-                nomeCompleto: 'Antonio',
+                nome: 'Antonio',
+                nomeCompleto: 'Antônio Carlos de Souza',
                 sobrenome: 'Carlos de Souza',
                 cidadeId: cidadeId,
                 email: 'antonio@gmail.com',
@@ -40,7 +41,13 @@ describe('Pessoas - Create', () => {
         const res1 = await testServer
             .post('/pessoas')
             .set({ Authorization: `Bearer ${accessToken}` })
-            .send({ nomeCompleto: 'Ca' });
+            .send({
+                nome: 'An',
+                nomeCompleto: 'An',
+                sobrenome: 'Carlos de Souza',
+                cidadeId: cidadeId,
+                email: 'antonio@gmail.com',
+            });
 
         expect(res1.status).toEqual(StatusCodes.BAD_REQUEST);
         expect(res1.body).toHaveProperty('errors.body.nome');

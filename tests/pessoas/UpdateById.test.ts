@@ -8,7 +8,7 @@ describe('Pessoas - UpdateById', () => {
         const email = 'create-cidades@gmail.com';
         await testServer
             .post('/cadastrar') //cadastra usuario
-            .send({ nomeCompleto: 'Teste', email, senha: '123456' });
+            .send({ nome: 'Teste', email, senha: '123456' });
         const signInRes = await testServer
             .post('/entrar')
             .send({ email, senha: '123456' });
@@ -18,7 +18,7 @@ describe('Pessoas - UpdateById', () => {
         const resCidade = await testServer
             .post('/cidades')
             .set({ Authorization: `Bearer ${accessToken}` })
-            .send({ nomeCompleto: 'Teste' });
+            .send({ nome: 'Teste' });
         cidadeId = resCidade.body;
     });
 
@@ -27,7 +27,8 @@ describe('Pessoas - UpdateById', () => {
             .post('/pessoas')
             .set({ Authorization: `Bearer ${accessToken}` })
             .send({
-                nomeCompleto: 'Antonio',
+                nome: 'Antonio',
+                nomeCompleto: 'Antônio Carlos de Souza',
                 sobrenome: 'Carlos de Souza',
                 cidadeId: cidadeId,
                 email: 'antonioUpdateById@gmail.com',
@@ -39,7 +40,8 @@ describe('Pessoas - UpdateById', () => {
             .put(`/pessoas/${res1.body}`)
             .set({ Authorization: `Bearer ${accessToken}` })
             .send({
-                nomeCompleto: 'Luiz',
+                nome: 'Luiz',
+                nomeCompleto: 'Luiz Almeida',
                 sobrenome: 'Almeida',
                 cidadeId: cidadeId,
                 email: 'luizUpdateById@gmail.com',
@@ -53,7 +55,8 @@ describe('Pessoas - UpdateById', () => {
             .put('/pessoas/9999')
             .set({ Authorization: `Bearer ${accessToken}` })
             .send({
-                nomeCompleto: 'Luiz',
+                nome: 'Luiz',
+                nomeCompleto: 'Luiz Almeida',
                 sobrenome: 'Almeida',
                 cidadeId: 1,
                 email: 'luiz2UpdateById@gmail.com',
